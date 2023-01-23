@@ -1,0 +1,186 @@
+
+/* reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* estilos generales */
+
+body{
+    background-color: #eceef3;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* estilos del header */
+
+header{
+    display: none; /* al poner la propiedad display en "none" lo que produce es que los elementos adentro de la etiqueta main no se muestren. El motivo de hacer esto es que si nosotros empezamos a trabajar nuestro proyecto empezando por la versión movile, hay elementos que en dicha versión no aparecen, de acuerdo al ejemplo que estamos trabajando en esta clase, la versión movile no tiene el "header" y se muestra directamente por el "main", por eso con display:none, lo oculto. Sin embargo es posible volver a hacerlo visible para las versiones de pantalla en donde si queramos que aparezcan, como por ejemplo la versión desktop.*/
+}
+
+
+/* estilos de main */
+
+main{
+    display: flex; /* de manera convencional la propiedad flex trabaja en filas (row), al poner display: flex hace que todos los elementos del main queden uno al lado del otro, sin embargo si quiero que los elementos se me ubiquen uno debajo del otro debe colocar la siguiente propiedad.... */
+    flex-direction: column; /*ordena los elementos de main, uno debejo del otro, es decir en columnas*/
+    align-items: center; /*propiedad que centra los elementos de main, en el eje horizontal, (TENER EN CUENTA LO SIGUIENTE: por defecto cuando declaro display: flex, todos los elementos se acomodan en una fila (row) y al aplicarle la propiedad align-items:center lo que consigo es que los elementos se centren en el eje vertical de la fila, pero para este ejemplo los elementos se centran en al eje horizontal de la fila porque al declarar la propiedad flex-direction:columns estoy diciendo que los elementos se ubiquen en columnas y esto modifica también el eje al cual se van a centrar), aunque es posible que no todos los elementos se centren, sin embargo con las siguientes propiedades los terminaremos de centrar...*/
+    text-align: center; /* propiedad que centra todos los textos que estén dentro de la etiqueta contenedora padre, en este caso "main" */
+    padding: 1.5rem; /*espaciado interno de los elementos contenidos por main con los bordes de la caja del padre "main"*/
+
+
+}
+
+main h2{
+    margin: 1rem; /*espaciado externo entre h2 respecto a las etiquetas p*/
+}
+
+main h2 span{
+    display: block; /*propiedad que transforma a la etiqueta span, etiqueta de linea, en una etiqueta de bloque */
+}
+
+main .boton{
+    background-color: #51b0df;
+    margin-top: 1rem;
+    padding: 0.7rem 1.2rem 0.7rem 1.2rem; /*espaciado interno*/
+    color: whitesmoke; /*propiedad que le da color a lo contenido por "boton", en este caso el texto "Contactame"*/
+    box-shadow: 1px 2px 10px black; /* propiedad que le da sombreado al contenedor "boton", en este ejemplo el primer valor le da sombra al eje horizontal, el segundo al eje vertical, el tercero le da un difuminado a los dos ejes y el cuarto modifica el color de la sombra*/
+
+}
+
+main img{
+    width: 60%; /*al trabajar la imagen en % lo que hago es que la imagen se adepte a las pantallas en donde se abra el html, o sea la hacemos responsive */
+}
+
+/*estilos de section*/
+
+section{
+    display: none; /*propiedad que me oculta la etiqueta sectión con todo su contenido*/
+}
+
+/*estilos de footer*/
+
+footer h4{
+    text-align: center;
+}
+
+/* unidades de medidas relativas, para proyectos responsive */
+
+/* rem es relativa al tamaño que tiene el contenedor padre
+   1 rem = 16px
+   2 rem = 32px
+   1.5rem = 24px */
+
+/* em es relativa, toma el tamaño al contenedor que tenga mas cercano, es decir que si se le declara, por ejemplo, al contenedor main una font-size: 30px y luego a las etiquetas p les declaro una font-size: 1em, automanticamente para este ejemplo 1em equivale a 30px
+
+   1em = 16px convencionalmente sin que se modifique los px del contenedor mas cercano. */
+
+
+/* pantallas de tablet - lo siguiente me permite modificar mi html para que se vea de una forma distinta cuando se visualiza en pantallas de tablet, para ello se pone la condición de que cuando la página se esté reprodiciendo en una pantalla que tenga como mínimo 600px en su ancho quiero que se muestre de tal manera.....*/
+
+@media screen and (min-width: 600px){
+    
+    /*estilos header*/
+
+    header{
+        display: block; /*propiedad que me permite mostrar la etiqueta que antes estaba oculta (para pantallas que tienen menos de 600px de ancho) en pantallas con un ancho mayor a 600px. Si la etiqueta es de bloque, la propiedad que se usa es display:block, si la etiqueta es de linea, la propiedad que se usa es display:inline*/
+        
+        display: flex; /*propiedad que permite ubicar los elementos que contiene el padre (en este caso "header" uno al lado del otro, es decir, en fila (row)*/
+
+        justify-content: space-between; /* propiedad de flexbox - REVISAR*/
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding: 0.7rem;
+        align-items: center; /*propiedad que centra los elementos en el eje vertical de la fila (row) ya que display: flex por defecto me permite colocar los elementos en fila*/
+    }
+
+    header nav ul{
+        display: flex; /*propiedad de flexbox - REVISAR*/
+        list-style: none; /*propiedad que quita los marcadores que se ponen por defecto cuando se declara una lista ordenada (los marcadores son números) o cuando se declara una lista desordenada (los marcadores son puntos)*/
+        gap: 1rem; /*propiedad que me permite trabajar los espacios entre los elementos que están contenidos por la etiqueta padre, en este caso la etiqueta padre es ul y los elementos contenidos (hijos) son los tres li */
+        
+    }
+
+    header nav ul li{
+        font-weight: bold;
+    }
+
+    /* estilos de section */
+
+    section{
+        display: block;
+        display: flex;
+        background-color: #bee0f1;
+        padding: 1rem; /*propiedad que separa los elementos internos de section*/
+        gap: 0.5rem;
+    }
+
+    section div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+    }
+
+    section div img{
+        width: 20%;
+    }
+
+}
+
+/* estilos de pantallas de escritorio*/
+
+@media screen and (min-width: 1024px){
+    
+    /*prara trabajar el proyecto en pantallas de escitorio utilizo GRID*/
+
+    /*estilos de main*/
+
+    main{
+        width: 100%;
+        display: grid; /*propiedad que me habilita a trabajar con las propiedades de grid*/
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+
+        grid-template-areas: 
+        "p img"
+        "h2 img"
+        "p-dos img"
+        "boton img";
+
+        justify-content: center;
+        justify-items: center;
+
+    }
+
+    main h2{
+        grid-area: h2;
+    }
+
+    main img{
+        grid-area: img;
+    }
+
+    main p{
+        grid-area: p;
+    }
+
+    main .p-dos{
+        grid-area: p-dos;
+        width: 70%;
+    }
+
+    main .boton{
+        grid-area: boton;
+    }
+
+    /*estilos de footer*/
+
+    footer{
+        margin-top: 0.5rem;
+    }
+
+}
+
